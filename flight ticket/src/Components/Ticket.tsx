@@ -2,29 +2,37 @@ import { mockFlightTickets } from "../mock/flightData";
 
 const TicketList = () => {
   return (
-    <div className="p-6">
+    <div className="p-4  sm:p-6 space-y-8">
       {mockFlightTickets.map((ticket) => (
-        <div key={ticket.id}>
+        <div key={ticket.id} className="space-y-4">
           <h2 className="text-xl font-bold">{ticket.name}</h2>
-          <p className="text-xl">
+
+          <p className="text-lg">
             <span className="font-bold">Passport Number:</span>{" "}
             {ticket.passportNumber}
           </p>
-          <p className="text-xl">
+
+          <p className="text-lg">
             <span className="font-bold">PNR:</span> {ticket.pnr}
           </p>
-          <div className="border rounded-sm p-0 shadow  bg-white">
-            <div>
-              <p className="bg-slate-200 p-4 mt-0">Flight details</p>
+
+          <div className="border rounded-md shadow bg-white">
+            <div className="bg-slate-200 p-4 flex flex-col sm:flex-row justify-between gap-2">
+              <p className="font-semibold text-2xl">Flight details</p>
+              <p className="text-2xl text-gray-600">
+                <span className="font-bold"> Reserved on </span>:{" "}
+                {ticket.reservedOn}
+              </p>
             </div>
-            <div className="flex justify-between text-3xl p-1 font-medium">
-              <p className="text-sm">
+
+            <div className="flex justify-between text-lg text-gray-500 p-2">
+              <p>
                 {new Date(ticket.departureTime).toLocaleTimeString([], {
                   hour: "2-digit",
                   minute: "2-digit",
                 })}
               </p>
-              <p className="text-sm">
+              <p>
                 {new Date(ticket.arrivalTime).toLocaleTimeString([], {
                   hour: "2-digit",
                   minute: "2-digit",
@@ -32,33 +40,26 @@ const TicketList = () => {
               </p>
             </div>
 
-            {/* <div className="flex justify-between text-3xl p-2 font-bold">
-              <p>{ticket.to}</p>
-              <p>{ticket.from}</p>
-            </div> */}
-            <div className="flex items-center justify-between text-xl font-bold p-2 gap-2">
-              <p>{ticket.from}</p>
-
-              <div className="flex items-center flex-1 mx-2 relative">
-                <div className="w-full border-t border-gray-400 border-dashed"></div>
-                <span className="absolute left-1/2 -translate-x-1/2 -top-3 bg-white px-1 text-gray-500 text-xxl">
+            <div className="flex items-center justify-between text-2xl sm:text-3xl font-bold p-2 gap-2">
+              <p>{ticket.airportFromCode}</p>
+              <div className="flex-1 flex items-center relative mx-2">
+                <div className="w-full border-t-4 border-gray-400 border-dashed"></div>
+                <span className="absolute left-1/2 -translate-x-1/2 -top-3 text-gray-500 text-2xl bg-white px-1">
                   ✈
                 </span>
               </div>
-
-              <p>{ticket.to}</p>
+              <p>{ticket.airportToCode}</p>
             </div>
 
-            <div className="flex justify-between text-3xl p-1 font-medium">
-              <p className="text-sm">
+            <div className="flex justify-between text-lg text-gray-500 p-2">
+              <p>
                 {new Date(ticket.departureTime).toLocaleDateString("en-GB", {
                   day: "2-digit",
                   month: "long",
                   year: "numeric",
                 })}
               </p>
-
-              <p className="text-sm">
+              <p>
                 {new Date(ticket.arrivalTime).toLocaleDateString("en-GB", {
                   day: "2-digit",
                   month: "long",
@@ -66,14 +67,24 @@ const TicketList = () => {
                 })}
               </p>
             </div>
-            <p>Flight No: {ticket.flightNumber}</p>
-            <p>Departure: {new Date(ticket.departureTime).toLocaleString()}</p>
-            <p>Arrival: {new Date(ticket.arrivalTime).toLocaleString()}</p>
+
+            <div className="flex flex-col sm:flex-row justify-between text-lg text-gray-500 p-2 gap-1 sm:gap-2">
+              <p>{ticket.from}</p>
+              <p>{ticket.to}</p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-base text-gray-800">
             <p>
-              Status:{" "}
+              <span className="font-bold">Flight No:</span>{" "}
+              {ticket.flightNumber}
+            </p>
+
+            <p>
+              <span className="font-bold">Status:</span>
               <span
-                className={`font-semibold ${
-                  ticket.status === "Delayed"
+                className={`ml-1 font-semibold ${
+                  ticket.status === "CANCELLED"
                     ? "text-red-600"
                     : "text-green-600"
                 }`}
@@ -81,9 +92,30 @@ const TicketList = () => {
                 {ticket.status}
               </span>
             </p>
-            <p>Baggage: {ticket.baggage}</p>
-            <p>Meals: {ticket.meals.join(", ")}</p>
-            <p className="font-semibold">Price: ${ticket.price.toFixed(2)}</p>
+
+            <p>
+              <span className="font-bold">Baggage:</span> {ticket.baggage}
+            </p>
+
+            <p>
+              <span className="font-bold">Meals:</span>
+              <span
+                className={`ml-1 ${
+                  ticket.meals ? "text-green-600" : "text-red-600"
+                }`}
+              >
+                {ticket.meals ? "🍽️ Included" : "❌ Not Included"}
+              </span>
+            </p>
+
+            <p className="font-semibold">
+              <span className="font-bold">Price:</span>
+              {ticket.price.toFixed(2)}
+            </p>
+
+            <p>
+              <span className="font-bold">Booked by:</span> {ticket.reservedBy}
+            </p>
           </div>
         </div>
       ))}

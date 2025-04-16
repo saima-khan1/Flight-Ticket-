@@ -3,16 +3,19 @@ export interface FlightTicket {
   name: string;
   passportNumber: string;
   pnr: number;
+  airportFromCode: string;
+  airportToCode: string;
   from: string;
   to: string;
   flightNumber: string;
-
+  reservedOn: string;
   departureTime: string;
   arrivalTime: string;
-  status: "On Time" | "Delayed" | "Cancelled";
+  status: "CREATED" | "RESERVED" | "CONFIRMED" | "CANCELLED";
   baggage: string;
-  meals: string[];
+  meals: boolean;
   price: number;
+  reservedBy: string;
 }
 
 export const mockFlightTickets: FlightTicket[] = [
@@ -21,14 +24,19 @@ export const mockFlightTickets: FlightTicket[] = [
     name: " Mr John Doe",
     passportNumber: "X1234567",
     pnr: 5665,
-    from: " JFK",
-    to: "LHR",
+    airportFromCode: " JFK",
+    airportToCode: "LHR",
+    from: "  New York",
+    to: "London",
+
     flightNumber: "BA178",
+    reservedOn: "15-04-2025",
     departureTime: "2025-04-20T18:30:00Z",
     arrivalTime: "2025-04-21T06:45:00Z",
-    status: "On Time",
+    status: "CONFIRMED",
     baggage: "2 x 23kg",
-    meals: ["Dinner", "Breakfast"],
-    price: 820.0,
+    meals: true,
+    price: 10000,
+    reservedBy: "Mr John Doe",
   },
 ];
