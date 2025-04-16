@@ -1,5 +1,11 @@
+import TicketList from "./Components/Ticket";
+
 const App = () => {
-  return <div>App</div>;
+  return (
+    <div>
+      <TicketList />
+    </div>
+  );
 };
 
 export default App;
