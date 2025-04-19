@@ -2,7 +2,7 @@ export interface FlightTicket {
   id: string;
   name: string;
   passportNumber: string;
-  pnr: number;
+  pnr: string;
   airportFromCode: string;
   airportToCode: string;
   from: string;
@@ -23,7 +23,7 @@ export const mockFlightTickets: FlightTicket[] = [
     id: "1",
     name: " Mr John Doe",
     passportNumber: "X1234567",
-    pnr: 5665,
+    pnr: "5665",
     airportFromCode: " JFK",
     airportToCode: "LHR",
     from: "  New York",
