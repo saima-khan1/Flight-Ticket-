@@ -147,7 +147,7 @@ import { BookingType } from "../types";
 
 export const mockFlightTickets: BookingType[] = [
   {
-    adult: 1,
+    Adult: 1,
     child: 1,
     infant: 0,
     agentContactNumber: "+46123456789",
@@ -168,7 +168,7 @@ export const mockFlightTickets: BookingType[] = [
     status: "CONFIRMED",
     passengers: [
       {
-        type: "adult",
+        type: "Adult",
         dob: "1990-03-15",
         finalDeal: 4500,
         givenName: "Ali",

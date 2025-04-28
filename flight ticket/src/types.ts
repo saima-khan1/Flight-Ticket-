@@ -1,5 +1,5 @@
 export type BookingType = {
-  adult: number;
+  Adult: number;
   agentContactNumber: string;
   orderId: string;
   airlinePnr: string;
@@ -24,7 +24,7 @@ export type BookingType = {
 };
 
 export type PassengerType = {
-  type: "adult" | "child" | "infant";
+  type: "Adult" | "child" | "infant";
   dob: string;
   finalDeal: number;
   givenName: string;
