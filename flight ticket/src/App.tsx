@@ -1,4 +1,4 @@
-import TicketList from "./Components/Ticket";
+import TicketList from "./Components/TicketList";
 
 const App = () => {
   return (
