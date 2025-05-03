@@ -1,4 +1,3 @@
-// components/PassengerDetails.tsx
 import React from "react";
 import { FaSuitcase, FaUtensils } from "react-icons/fa";
 import { PassengerType, Itinerary } from "../types";

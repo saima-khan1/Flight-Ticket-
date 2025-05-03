@@ -1,9 +1,7 @@
-// components/FlightRoute.tsx
 import React from "react";
 import { FaPlaneDeparture, FaPlaneArrival } from "react-icons/fa";
 import { BookingType, Itinerary } from "../types";
 import getFlightDuration from "../utils/getFlightDuration";
-import { assets } from "../assets/assets";
 
 interface FlightRouteProps {
   itinerary: Itinerary;
@@ -41,7 +39,7 @@ const ItineraryCard: React.FC<FlightRouteProps> = ({ itinerary, ticket }) => (
         <div className="w-full border-t-4 border-gray-400 border-dashed"></div>
         <div className="absolute left-1/2 -translate-x-1/2 -top-4 flex flex-col items-center">
           <span className="text-gray-500 text-2xl bg-white px-1">
-            <img src={assets.logo} className="w-8 h-auto" />
+            <img src={ticket.airlineLogoUrl} className="w-8 h-auto" />
           </span>
           <span className="text-sm sm:text-lg font-semibold text-gray-600 whitespace-nowrap">
             {getFlightDuration(itinerary.departureTime, itinerary.arrivalTime)}

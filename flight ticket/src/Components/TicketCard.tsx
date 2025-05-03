@@ -2,10 +2,8 @@ import React from "react";
 import { BookingType } from "../types";
 import TicketHeader from "./TicketHeader";
 import ItineraryTabs from "./ItineraryTabs";
-
 import PassengerDetails from "./PassengerDetails";
 import BookingInfo from "./BookingInfo";
-import { assets } from "../assets/assets";
 import ItineraryCard from "./ItineraryCard";
 import TicketTerms from "./TicketTerms";
 
@@ -25,7 +23,7 @@ const TicketCard: React.FC<TicketCardProps> = ({
 
   return (
     <div className="space-y-4">
-      <img src={assets.image7} className="w-32 h-auto" />
+      <img src={ticket.companyLogoUrl} className="h-10 w-auto object-contain" />
       <TicketHeader passenger={passenger} ticket={ticket} />
       <ItineraryTabs
         itineraries={ticket.itineraries}

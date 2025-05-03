@@ -1,16 +1,19 @@
 export type BookingType = {
   Adult: number;
   agentContactNumber: string;
+  airlineLogoUrl?: string;
   orderId: string;
   airlinePnr: string;
   child: number;
   companyName: string;
   companyId: any;
+  companyLogoUrl?: string;
   created_at?: string;
   currency: string;
   finalDealAdult: number;
   finalDealChild: number;
   finalDealInfant: number;
+
   groupId: any;
   _id: any;
   infant: number;
