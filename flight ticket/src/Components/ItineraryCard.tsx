@@ -10,7 +10,7 @@ interface FlightRouteProps {
 
 const ItineraryCard: React.FC<FlightRouteProps> = ({ itinerary, ticket }) => (
   <div className="bg-slate-100">
-    <div className="p-2 sm:p-4 bg-white flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+    <div className="p-2 sm:p-4  flex flex-col sm:flex-row sm:items-center justify-between gap-1">
       <p className="font-medium text-lg sm:text-2xl">
         {itinerary.from} to {itinerary.to}
       </p>
@@ -36,14 +36,18 @@ const ItineraryCard: React.FC<FlightRouteProps> = ({ itinerary, ticket }) => (
       <FaPlaneDeparture className="inline-block text-indigo-500" />
       <p className="text-lg sm:text-3xl">{itinerary.airportFromCode}</p>
       <div className="flex-1 flex items-center relative mx-0">
-        <div className="w-full border-t-4 border-gray-400 border-dashed"></div>
-        <div className="absolute left-1/2 -translate-x-1/2 -top-4 flex flex-col items-center">
-          <span className="text-gray-500 text-2xl bg-white px-1">
-            <img src={ticket.airlineLogoUrl} className="w-8 h-auto" />
-          </span>
-          <span className="text-sm sm:text-lg font-semibold text-gray-600 whitespace-nowrap">
-            {getFlightDuration(itinerary.departureTime, itinerary.arrivalTime)}
-          </span>
+        <div className="w-full border-t-4 border-gray-400 border-dashed">
+          <div className="absolute left-1/2 -translate-x-1/2 -top-4 flex flex-col items-center">
+            <span className="text-gray-500 text-2xl bg-white px-1">
+              <img src={ticket.airlineLogoUrl} className="w-8 h-auto" />
+            </span>
+            <span className="text-sm sm:text-lg font-semibold text-gray-600 whitespace-nowrap">
+              {getFlightDuration(
+                itinerary.departureTime,
+                itinerary.arrivalTime
+              )}
+            </span>
+          </div>
         </div>
       </div>
       <p className="text-lg sm:text-3xl">{itinerary.airportToCode}</p>

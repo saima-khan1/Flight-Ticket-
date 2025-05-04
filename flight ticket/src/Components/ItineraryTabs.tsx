@@ -15,7 +15,7 @@ const ItineraryTabs: React.FC<ItineraryTabsProps> = ({
   if (itineraries.length <= 1) return null;
 
   return (
-    <div className="p-2   sm:p-4   flex flex-col sm:flex-row sm:items-center gap-1">
+    <div className="p-2   sm:p-0  flex flex-col sm:flex-row sm:items-center gap-1">
       {itineraries.map((itinerary, index) => (
         <span
           key={index}

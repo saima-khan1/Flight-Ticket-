@@ -1,6 +1,6 @@
 const TicketTerms = () => {
   return (
-    <div className="mt-10 p-2 sm:p-6 bg-gray-100 rounded-lg text-sm sm:text-lg text-gray-700 leading-relaxed">
+    <div className="mt-10 p-2 sm:p-6 bg-slate-100 rounded-lg text-sm sm:text-lg text-gray-700 leading-relaxed">
       {" "}
       <h3 className="text-lg font-bold text-gray-800 mb-2">
         Ticket Terms & Conditions{" "}
