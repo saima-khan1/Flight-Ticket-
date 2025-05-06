@@ -19,7 +19,7 @@ export const mockFlightTickets: BookingType[] = [
     finalDealInfant: 0,
     groupId: "GRP001",
     _id: "BOOK001",
-    reservedBy: "Saima Khan",
+    reservedBy: "Saif",
     saleFare: 7500,
     spreadSheetId: "sheet123",
     status: "CONFIRMED",
