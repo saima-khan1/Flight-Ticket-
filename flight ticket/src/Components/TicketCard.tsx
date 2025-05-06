@@ -41,7 +41,6 @@ const TicketCard: React.FC<TicketCardProps> = ({
             />
           }
           fileName="flight-tickets.pdf"
-          // className="w-12 h-16"
         >
           {({ loading }) =>
             loading ? (
@@ -64,21 +63,6 @@ const TicketCard: React.FC<TicketCardProps> = ({
       <PassengerDetails itinerary={itinerary} passenger={passenger} />
       <BookingInfo ticket={ticket} />
       <TicketTerms />
-      {/* <div className="mt-6 text-center">
-        <PDFDownloadLink
-          document={
-            <PDFTicketDocument
-              ticket={ticket}
-              passenger={passenger}
-              activeIndex={activeIndex}
-            />
-          }
-          fileName="flight-tickets.pdf"
-          className="w-48 h-12 bg-blue-600 hover:bg-blue-700 text-white text-base font-semibold rounded-md shadow-md flex items-center justify-center"
-        >
-          {({ loading }) => (loading ? "Preparing..." : "Download PDF")}
-        </PDFDownloadLink>
-      </div> */}
     </div>
   );
 };
