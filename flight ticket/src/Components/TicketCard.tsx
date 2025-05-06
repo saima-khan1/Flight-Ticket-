@@ -8,6 +8,7 @@ import ItineraryCard from "./ItineraryCard";
 import TicketTerms from "./TicketTerms";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import PDFTicketDocument from "./PDFTicketDocumnet/PDFTicketDocument";
+import { LuDownload } from "react-icons/lu";
 
 interface TicketCardProps {
   ticket: BookingType;
@@ -25,8 +26,34 @@ const TicketCard: React.FC<TicketCardProps> = ({
 
   return (
     <div className="space-y-4">
-      <img src={ticket.companyLogoUrl} className="h-10 w-auto object-contain" />
+      <div className="flex justify-between items-center">
+        <img
+          src={ticket.companyLogoUrl}
+          className="h-10 w-auto object-contain"
+        />
+
+        <PDFDownloadLink
+          document={
+            <PDFTicketDocument
+              ticket={ticket}
+              passenger={passenger}
+              activeIndex={activeIndex}
+            />
+          }
+          fileName="flight-tickets.pdf"
+          // className="w-12 h-16"
+        >
+          {({ loading }) =>
+            loading ? (
+              <span>Preparing...</span>
+            ) : (
+              <LuDownload className="w-8 h-8" />
+            )
+          }
+        </PDFDownloadLink>
+      </div>
       <TicketHeader passenger={passenger} ticket={ticket} />
+
       <ItineraryTabs
         itineraries={ticket.itineraries}
         activeIndex={activeIndex}
@@ -37,7 +64,7 @@ const TicketCard: React.FC<TicketCardProps> = ({
       <PassengerDetails itinerary={itinerary} passenger={passenger} />
       <BookingInfo ticket={ticket} />
       <TicketTerms />
-      <div className="mt-6 text-center">
+      {/* <div className="mt-6 text-center">
         <PDFDownloadLink
           document={
             <PDFTicketDocument
@@ -51,7 +78,7 @@ const TicketCard: React.FC<TicketCardProps> = ({
         >
           {({ loading }) => (loading ? "Preparing..." : "Download PDF")}
         </PDFDownloadLink>
-      </div>
+      </div> */}
     </div>
   );
 };
