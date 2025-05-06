@@ -6,6 +6,8 @@ import PassengerDetails from "./PassengerDetails";
 import BookingInfo from "./BookingInfo";
 import ItineraryCard from "./ItineraryCard";
 import TicketTerms from "./TicketTerms";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import PDFTicketDocument from "./PDFTicketDocumnet/PDFTicketDocument";
 
 interface TicketCardProps {
   ticket: BookingType;
@@ -35,6 +37,15 @@ const TicketCard: React.FC<TicketCardProps> = ({
       <PassengerDetails itinerary={itinerary} passenger={passenger} />
       <BookingInfo ticket={ticket} />
       <TicketTerms />
+      <div className="mt-6 text-center">
+        <PDFDownloadLink
+          document={<PDFTicketDocument />}
+          fileName="flight-tickets.pdf"
+          className="w-48 h-12 bg-blue-600 hover:bg-blue-700 text-white text-base font-semibold rounded-md shadow-md flex items-center justify-center"
+        >
+          {({ loading }) => (loading ? "Preparing..." : "Download PDF")}
+        </PDFDownloadLink>
+      </div>
     </div>
   );
 };
