@@ -11,8 +11,8 @@ const PassengerDetails: React.FC<PassengerDetailsProps> = ({
   passenger,
   itinerary,
 }) => (
-  <div className="grid grid-cols-1 sm:grid-cols-1 gap-4 bg-slate-100 p-4">
-    <div className="bg-white p-4 rounded-lg shadow-md flex flex-col gap-2">
+  <div className="bg-white shadow-lg rounded-md">
+    <div className="grid grid-cols-1 sm:grid-cols-1 gap-4  p-4 shadow-lg rounded-md">
       <p>
         <span className="bg-slate-400 px-2 py-1 rounded text-white">
           {passenger.type}

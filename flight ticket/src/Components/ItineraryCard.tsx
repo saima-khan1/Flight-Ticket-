@@ -9,7 +9,7 @@ interface FlightRouteProps {
 }
 
 const ItineraryCard: React.FC<FlightRouteProps> = ({ itinerary, ticket }) => (
-  <div className="bg-slate-100">
+  <div className="bg-white shadow-lg rounded-md">
     <div className="p-2 sm:p-4  flex flex-col sm:flex-row sm:items-center justify-between gap-1">
       <p className="font-medium text-lg sm:text-2xl">
         {itinerary.from} to {itinerary.to}
@@ -32,7 +32,7 @@ const ItineraryCard: React.FC<FlightRouteProps> = ({ itinerary, ticket }) => (
       </p>
     </div>
 
-    <div className="flex items-center justify-between text-2xl bg-slate-100 sm:text-3xl font-bold p-3 sm:p-6 sm:mr-2 sm:ml-2 mt-2 gap-2">
+    <div className="flex items-center justify-between text-2xl  sm:text-3xl font-bold p-3 sm:p-6 sm:mr-2 sm:ml-2 mt-2 gap-2">
       <FaPlaneDeparture className="inline-block text-indigo-500" />
       <p className="text-lg sm:text-3xl">{itinerary.airportFromCode}</p>
       <div className="flex-1 flex items-center relative mx-0">
