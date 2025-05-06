@@ -1,12 +1,25 @@
 import { Page, Text, View, Document, Image } from "@react-pdf/renderer";
-import { mockFlightTickets } from "../../mock/flightData";
+
 import { BookingType, PassengerType } from "../../types";
 import { styles } from "./styles";
+interface TicketPDFProps {
+  ticket: BookingType;
+  passenger: PassengerType;
+  activeIndex: number;
+}
 
-const TicketPDF = () => {
-  const ticket: BookingType = mockFlightTickets[0];
-  const passenger: PassengerType = ticket.passengers[0];
-  const itinerary = ticket.itineraries[0];
+interface TicketPDFProps {
+  ticket: BookingType;
+  passenger: PassengerType;
+  activeIndex: number;
+}
+
+const TicketPDF: React.FC<TicketPDFProps> = ({
+  ticket,
+  passenger,
+  activeIndex,
+}) => {
+  const itinerary = ticket.itineraries[activeIndex];
 
   return (
     <Document>

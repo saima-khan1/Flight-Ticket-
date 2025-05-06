@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { mockFlightTickets } from "../mock/flightData";
 import TicketCard from "./TicketCard";
-import PDFTicketDocument from "./PDFTicketDocumnet/PDFTicketDocument";
-import { PDFDownloadLink } from "@react-pdf/renderer";
 
 const TicketList = () => {
   const initialActiveIndices = mockFlightTickets.reduce((acc, ticket) => {
@@ -30,15 +28,6 @@ const TicketList = () => {
             />
           ))}
         </div>
-        {/* <div className="mt-6 text-center">
-          <PDFDownloadLink
-            document={<PDFTicketDocument />}
-            fileName="flight-tickets.pdf"
-            className="w-48 h-12 bg-blue-600 hover:bg-blue-700 text-white text-base font-semibold rounded-md shadow-md flex items-center justify-center"
-          >
-            {({ loading }) => (loading ? "Preparing..." : "Download PDF")}
-          </PDFDownloadLink>
-        </div> */}
       </div>
     </div>
   );
