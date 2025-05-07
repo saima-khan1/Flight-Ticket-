@@ -7,7 +7,10 @@ interface TicketHeaderProps {
 }
 
 const TicketHeader: React.FC<TicketHeaderProps> = ({ passenger, ticket }) => (
-  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4 text-sm text-gray-700 mt-4">
+  <div className="grid grid-cols-1 gap-2 text-sm text-gray-700 mt-4">
+    <h2 className="text-base sm:text-xl font-bold">
+      Thanks for choosing {ticket.companyName}
+    </h2>
     <h2 className="text-base sm:text-xl font-extrabold">
       {`${passenger.title} ${passenger.givenName} ${passenger.surname}`}
     </h2>

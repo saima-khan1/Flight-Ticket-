@@ -51,7 +51,12 @@ const TicketCard: React.FC<TicketCardProps> = ({
           }
         </PDFDownloadLink>
       </div>
-      <TicketHeader passenger={passenger} ticket={ticket} />
+
+      <div className="flex flex-col justify-between sm:flex-row gap-6 mt-6">
+        <TicketHeader passenger={passenger} ticket={ticket} />
+
+        <BookingInfo ticket={ticket} />
+      </div>
 
       <ItineraryTabs
         itineraries={ticket.itineraries}
@@ -61,7 +66,7 @@ const TicketCard: React.FC<TicketCardProps> = ({
       <ItineraryCard itinerary={itinerary} ticket={ticket} />
 
       <PassengerDetails itinerary={itinerary} passenger={passenger} />
-      <BookingInfo ticket={ticket} />
+
       <TicketTerms />
     </div>
   );

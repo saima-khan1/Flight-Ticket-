@@ -15,7 +15,7 @@ const TicketTerms = () => {
           Any changes or cancellations must be made at least 24 hours prior to
           departure.{" "}
         </li>{" "}
-        <li>
+        {/* <li>
           Refunds are subject to the airline’s cancellation policy and may incur
           service fees.{" "}
         </li>{" "}
@@ -30,7 +30,7 @@ const TicketTerms = () => {
         <li>
           Excess baggage fees may apply if your luggage exceeds the permitted
           allowance.{" "}
-        </li>{" "}
+        </li>{" "} */}
       </ul>{" "}
     </div>
   );
