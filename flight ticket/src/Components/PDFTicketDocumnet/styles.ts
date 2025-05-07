@@ -6,14 +6,15 @@ export const styles = StyleSheet.create({
     fontFamily: "Helvetica",
   },
   header: {
-    fontSize: 14,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
     marginBottom: 30,
-    fontWeight: "bold",
   },
   logo: {
     width: 60,
     height: "auto",
-    marginBottom: 10,
+
     objectFit: "contain",
   },
 
@@ -58,10 +59,6 @@ export const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: "bold",
   },
-  planeIcon: {
-    fontSize: 20,
-    marginHorizontal: 4,
-  },
 
   divider: {
     borderTopWidth: 1,
@@ -69,23 +66,7 @@ export const styles = StyleSheet.create({
     marginTop: 2,
     marginBottom: 12,
   },
-  table: {
-    width: "100%",
-    marginBottom: 20,
-  },
-  tableRow: {
-    flexDirection: "row",
-    borderBottomWidth: 1,
-    borderBottomColor: "#ccc",
-    paddingVertical: 5,
-    display: "flex",
-    justifyContent: "space-between",
-  },
-  tableCell: {
-    width: "25%",
-    padding: 5,
-    textAlign: "center",
-  },
+
   terms: {
     fontSize: 10,
     marginTop: 20,
@@ -100,11 +81,6 @@ export const styles = StyleSheet.create({
     textTransform: "uppercase",
   },
 
-  infoBlock: {
-    marginBottom: 10,
-    paddingLeft: 6,
-    gap: 4,
-  },
   row: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -116,5 +92,23 @@ export const styles = StyleSheet.create({
   label: {
     fontWeight: "bold",
     marginBottom: 2,
+  },
+  barcodeContainer: { marginTop: 5, alignItems: "center" },
+
+  headerLeft: {
+    flexDirection: "column",
+    alignItems: "flex-start",
+    gap: 4,
+    width: "50%",
+  },
+
+  headerRight: {
+    width: "50%",
+    alignItems: "flex-end",
+  },
+
+  barcode: {
+    width: 180,
+    height: 80,
   },
 });

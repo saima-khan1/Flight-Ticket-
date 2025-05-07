@@ -6,18 +6,21 @@ interface TicketPDFProps {
   ticket: BookingType;
   passenger: PassengerType;
   activeIndex: number;
+  barcodeImage: string;
 }
 
 interface TicketPDFProps {
   ticket: BookingType;
   passenger: PassengerType;
   activeIndex: number;
+  barcodeImage: string;
 }
 
 const TicketPDF: React.FC<TicketPDFProps> = ({
   ticket,
   passenger,
   activeIndex,
+  barcodeImage,
 }) => {
   const itinerary = ticket.itineraries[activeIndex];
 
@@ -25,19 +28,16 @@ const TicketPDF: React.FC<TicketPDFProps> = ({
     <Document>
       <Page size="A4" style={styles.page}>
         <View style={styles.header}>
-          <Image style={styles.logo} src={ticket.companyLogoUrl} />
-          {/* <View style={styles.centerColumn}>
-            <Text style={styles.title}>Flight Itinerary</Text>
-          </View> */}
-          <View style={styles.companyInfo}>
+          <View style={styles.headerLeft}>
+            <Image style={styles.logo} src={ticket.companyLogoUrl} />
             <Text>{ticket.companyName}</Text>
             <Text>{ticket.agentContactNumber}</Text>
           </View>
-        </View>
 
-        {/* <View style={styles.header}>
-          <Text style={styles.title}>Flight Itinerary</Text>
-        </View> */}
+          <View style={styles.headerRight}>
+            <Image style={styles.barcode} src={barcodeImage} />
+          </View>
+        </View>
 
         <View style={styles.routeSection}>
           <Text>{itinerary.from}</Text>
@@ -97,14 +97,17 @@ const TicketPDF: React.FC<TicketPDFProps> = ({
               <Text style={styles.label}>To:</Text> <Text>{itinerary.to}</Text>
             </View>
           </View>
-
           <View style={styles.column}>
-            <Text style={styles.label}>Departure Time:</Text>{" "}
-            <Text> {new Date(itinerary.departureTime).toLocaleString()}</Text>
+            <Text style={styles.label}>Class:</Text>
+            <Text>{itinerary.class}</Text>
           </View>
         </View>
 
         <View style={styles.row}>
+          <View style={styles.column}>
+            <Text style={styles.label}>Departure Time:</Text>{" "}
+            <Text> {new Date(itinerary.departureTime).toLocaleString()}</Text>
+          </View>
           <View style={styles.column}>
             <Text style={styles.label}>Arrival Time:</Text>{" "}
             <Text> {new Date(itinerary.arrivalTime).toLocaleString()}</Text>
@@ -113,10 +116,6 @@ const TicketPDF: React.FC<TicketPDFProps> = ({
           <View style={styles.column}>
             <Text style={styles.label}>Flight No:</Text>{" "}
             <Text>{itinerary.flightNumber}</Text>
-          </View>
-          <View style={styles.column}>
-            <Text style={styles.label}>Class:</Text>
-            <Text>{itinerary.class}</Text>
           </View>
         </View>
         <View style={styles.divider} />

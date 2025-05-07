@@ -24,7 +24,6 @@ const PassengerDetails: React.FC<PassengerDetailsProps> = ({
       </h2>
       <div className="w-full border-t-4 border-gray-400 border-dashed"></div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4 text-sm text-gray-700 mt-4">
-        {/* <div className="grid grid-cols-1 gap-2 text-sm text-gray-700 mt-4"> */}
         <p className="text-base sm:text-lg">
           <span className="font-semibold">Flight No:</span>{" "}
           {itinerary.flightNumber}

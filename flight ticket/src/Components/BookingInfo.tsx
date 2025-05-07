@@ -7,14 +7,15 @@ interface BookingInfoProps {
 
 const BookingInfo: React.FC<BookingInfoProps> = ({ ticket }) => (
   <div>
-    <div className="grid grid-cols-1 gap-2 text- text-gray-700 mt-0 sm:mt-0">
+    <div className="grid grid-cols-1 gap-2 text- text-gray-700 mt-0 sm:mt-2">
       <p className="text-base sm:text-lg">
         {" "}
-        <span className="font-bold">Booked by :</span> {ticket.reservedBy}
+        <span className="font-extrabold">Booked by :</span> {ticket.reservedBy}
       </p>
 
       <p className="text-base sm:text-lg">
-        <span className="font-bold">Phone No:</span> {ticket.agentContactNumber}
+        <span className="font-extrabold">Phone No:</span>{" "}
+        {ticket.agentContactNumber}
       </p>
       {/* <p className="text-base sm:text-lg">
         <span className="font-semibold">Issuing office:</span>{" "}

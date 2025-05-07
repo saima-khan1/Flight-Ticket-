@@ -15,11 +15,11 @@ const TicketHeader: React.FC<TicketHeaderProps> = ({ passenger, ticket }) => (
       {`${passenger.title} ${passenger.givenName} ${passenger.surname}`}
     </h2>
     <p className="text-base sm:text-lg">
-      <span className="font-extrabold">PNR:</span> {ticket.airlinePnr}
+      <span className="font-extrabold">Your Booking Reference:</span>{" "}
+      {ticket.orderId}
     </p>
     <p className="text-base sm:text-lg">
-      <span className="font-extrabold">Booking Reference:</span>{" "}
-      {ticket.orderId}
+      <span className="font-extrabold">PNR No:</span> {ticket.airlinePnr}
     </p>
   </div>
 );

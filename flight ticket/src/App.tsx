@@ -2,7 +2,7 @@ import TicketList from "./Components/TicketList";
 
 const App = () => {
   return (
-    <div>
+    <div className="min-h-screen w-full ">
       <TicketList />
     </div>
   );
